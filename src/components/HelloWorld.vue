@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import source from '@/data.json';
+console.log(source);
 export default {
   name: 'HelloWorld',
   props: {
