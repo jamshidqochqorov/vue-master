@@ -8,6 +8,7 @@
 import PageThreadList from "@/components/PageThreadList";
 import soureData from '@/data.json';
 export default {
+  name:'HomePage',
   components:{
     PageThreadList
   },
