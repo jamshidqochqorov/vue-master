@@ -11,7 +11,7 @@
                <RouterLink :to="{name:'ThreadShow',params:{id:thread.id}}">{{ thread.title }}</RouterLink>
              </p>
              <p class="text-faded text-xsmall">
-               By <a href="#">{{userById(thread.userId).name}}</a>,{{thread.publishedAt}}
+               By <a href="#">{{userById(thread.userId).name}}</a>,<AppDate :timestamp="thread.publishedAt"></AppDate>
              </p>
          </div>
 
@@ -37,7 +37,9 @@
 
 <script >
 import soureData from '@/data.json';
+import AppDate from "@/components/AppDate";
 export default {
+  components: {AppDate},
   props:{
     threads:{
       type:Array,

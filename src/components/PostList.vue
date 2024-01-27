@@ -18,10 +18,9 @@
           </p>
         </div>
       </div>
-
-      <div class="post-date text-faded">
-        {{post.publishedAt}}
-      </div>
+        <div class="post-date text-faded">
+          <AppDate :timestamp="post.publishedAt"></AppDate>
+        </div>
 
     </div>
   </div>
@@ -29,7 +28,12 @@
 
 <script>
 import soureData from '@/data.json';
+import dayjs from  'dayjs';
+import relativeTime from   'dayjs/plugin/relativeTime'
+import AppDate from "@/components/AppDate";
+dayjs.extend(relativeTime);
 export default {
+  components: {AppDate},
   props:{
     posts:{
       required:true,
@@ -38,13 +42,15 @@ export default {
   },
   data(){
     return{
-      users:soureData.users
+      users:soureData.users,
+      time:dayjs
     }
   },
   methods:{
     userById(userId){
       return this.users.find(p=>p.id ===userId);
-    }
+    },
+
   }
 }
 </script>
