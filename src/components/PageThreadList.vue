@@ -37,9 +37,7 @@
 
 <script >
 import soureData from '@/data.json';
-import AppDate from "@/components/AppDate";
 export default {
-  components: {AppDate},
   props:{
     threads:{
       type:Array,

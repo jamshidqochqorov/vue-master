@@ -4,6 +4,7 @@ import sourceData from "@/data.json";
 import Home from '@/pages/Home';
 import ThreadShow from '@/pages/ThreadShow';
 import NotFound from '@/pages/NotFound';
+import Forum from '@/pages/Forum';
 
 
 const router = createRouter({
@@ -14,6 +15,13 @@ const router = createRouter({
             name: 'Home',
             component:Home
         },
+        {
+            path: '/forum/:id',
+            name: 'Forum',
+            component:Forum,
+            props:true
+        },
+
         {
             path:'/thread/:id',
             name:'ThreadShow',

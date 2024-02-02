@@ -1,20 +1,19 @@
 <template>
  <h1>Welcome to the Forum</h1>
-  <PageThreadList :threads="threads"/>
+  <CategoryList :categories="categories"/>
 </template>
 
 <script >
-
-import PageThreadList from "@/components/PageThreadList";
 import soureData from '@/data.json';
+import CategoryList from "@/components/CategoryList";
 export default {
   name:'HomePage',
   components:{
-    PageThreadList
+    CategoryList,
   },
   data(){
     return{
-      threads: soureData.threads,
+      categories: soureData.categories,
     }
   }
 }

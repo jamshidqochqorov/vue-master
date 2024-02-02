@@ -5,3 +5,4 @@
 va  bu methoni o'zgaruvchiga olib hohlagn joyda ham ishlatsak bo'ladi
 # paraemetrli routega <RouterLink :to="{name:'ThreadShow',params:{id:thread.id}}">{{ thread.title }}</RouterLink> shu hollat qilib beramiz
 #beforeEnter()
+#componentlarni global qilish
