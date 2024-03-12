@@ -11,6 +11,9 @@
 </template>
 
 <script >
+import {mapState,mapActions} from "pinia";
+import {usePostsStore} from "@/stores/PostsStore";
+import {useThreadsStore} from "@/stores/ThreadsStore";
 import PostList from "@/components/PostList";
 import PostEditor from "@/components/PostEditor";
 export default {
@@ -27,14 +30,8 @@ export default {
 
   },
   computed:{
-    posts()
-    {
-      return this.$store.state.posts
-    },
-    threads()
-    {
-      return this.$store.state.threads
-    },
+    ...mapState(useThreadsStore,['threads']),
+    ...mapState(usePostsStore,['posts']),
     thread(){
       return this.threads.find(thread=>thread.id === this.id)
     },
@@ -43,13 +40,14 @@ export default {
     }
   },
   methods:{
+    ...mapActions(usePostsStore,['createPost']),
     addPost(eventdata){
       const post = {
         ...eventdata.post,
         threadId:this.id,
         userId:'rpbB8C6ifrYmNDufMERWfQUoa202'
       }
-      this.$store.dispatch('createPost',post)
+      this.createPost(post)
       // console.log(post)
       // this.posts.push(post)
       // this.thread.posts.push(post.id)
