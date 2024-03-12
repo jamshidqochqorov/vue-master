@@ -23,10 +23,7 @@ export default {
   },
   methods:{
     addPost(){
-      console.log('running')
-      const postId = 'ggg'+Math.random();
       const post = {
-        id:postId,
         text:this.text,
         publishedAt:Math.floor(Date.now()/1000),
         threadId:this.id,

@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import soureData from '@/data.json';
 import dayjs from  'dayjs';
 import relativeTime from   'dayjs/plugin/relativeTime'
 dayjs.extend(relativeTime);
@@ -40,8 +39,13 @@ export default {
   },
   data(){
     return{
-      users:soureData.users,
       time:dayjs
+    }
+  },
+  computed:{
+    users()
+    {
+      return this.$store.state.users
     }
   },
   methods:{

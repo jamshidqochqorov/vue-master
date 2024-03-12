@@ -36,7 +36,7 @@
 </template>
 
 <script >
-import soureData from '@/data.json';
+
 export default {
   props:{
     threads:{
@@ -44,10 +44,12 @@ export default {
       required:true,
     }
   },
-  data(){
-    return{
-      posts:soureData.posts,
-      users:soureData.users,
+  computed:{
+    posts(){
+      return this.$store.state.posts
+    },
+    users(){
+      return this.$store.state.users
     }
   },
   methods:{

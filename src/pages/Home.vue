@@ -1,20 +1,17 @@
 <template>
- <h1>Welcome to the Forum</h1>
-  <CategoryList :categories="categories"/>
+   <h1>Welcome to the Forum</h1>
+    <CategoryList :categories="categories"/>
 </template>
 
-<script >
-import soureData from '@/data.json';
+
+
+<script setup>
+
 import CategoryList from "@/components/CategoryList";
-export default {
-  name:'HomePage',
-  components:{
-    CategoryList,
-  },
-  data(){
-    return{
-      categories: soureData.categories,
-    }
-  }
-}
+import { storeToRefs } from 'pinia'
+import {useCategoriesStore} from "@/stores/CategoriesStore";
+
+const {categories} = storeToRefs(useCategoriesStore());
+
+
 </script>

@@ -11,7 +11,6 @@
 </template>
 
 <script >
-import soureData from '@/data.json';
 import PostList from "@/components/PostList";
 import PostEditor from "@/components/PostEditor";
 export default {
@@ -27,13 +26,15 @@ export default {
 
 
   },
-  data(){
-    return{
-      threads:soureData.threads,
-      posts:soureData.posts,
-    }
-  },
   computed:{
+    posts()
+    {
+      return this.$store.state.posts
+    },
+    threads()
+    {
+      return this.$store.state.threads
+    },
     thread(){
       return this.threads.find(thread=>thread.id === this.id)
     },
@@ -48,9 +49,10 @@ export default {
         threadId:this.id,
         userId:'rpbB8C6ifrYmNDufMERWfQUoa202'
       }
-      console.log(post)
-      this.posts.push(post)
-      this.thread.posts.push(post.id)
+      this.$store.dispatch('createPost',post)
+      // console.log(post)
+      // this.posts.push(post)
+      // this.thread.posts.push(post.id)
 
     }
   }
